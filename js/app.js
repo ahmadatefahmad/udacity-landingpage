@@ -36,7 +36,7 @@ const sections = document.querySelectorAll('section')
 // build the nav
 createNavLinks = () => {
     for (let item of sections) {
-        let button = document.createElement('li');
+        let button = document.createElement('button');
         button.className = 'menu__link'
         button.id = item.id + '-link'
         button.innerText = item.dataset.nav
@@ -70,9 +70,9 @@ setActive = () => {
 // Scroll to anchor ID using scrollTO event
 scrollToSection = () =>{
     navbar.addEventListener('click', function (event) {
-        if(event.target.tagName === 'LI'){
+        if(event.target.tagName === 'BUTTON'){
             const clicked = document.querySelector('#'+ event.target.id.slice(0,-5))
-            clicked.scrollIntoView();   
+            clicked.scrollIntoView({behavior: "smooth"});   
         }        
     });
 };
