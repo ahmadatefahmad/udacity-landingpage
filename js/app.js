@@ -41,8 +41,8 @@ createNavLinks = () => {
         button.id = item.id + '-link'
         button.innerText = item.dataset.nav
         navbar.appendChild(button);
-    };
-};
+    }
+}
 
 // Add class 'active' to section when near top of viewport
 setActive = () => {
@@ -72,10 +72,11 @@ scrollToSection = () =>{
     navbar.addEventListener('click', function (event) {
         if(event.target.tagName === 'BUTTON'){
             const clicked = document.querySelector('#'+ event.target.id.slice(0,-5))
-            clicked.scrollIntoView({behavior: "smooth"});   
-        }        
-    });
-};
+            clicked.scrollIntoView({behavior: "smooth"})
+        }
+    event.preventDefault() 
+    })
+}
 
 /**
  * End Main Functions
